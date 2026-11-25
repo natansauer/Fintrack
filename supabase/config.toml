@@ -1,0 +1,14 @@
+# Configuração mínima da CLI do Supabase para publicar as Edge Functions do FinTrack.
+project_id = "fintrack"
+
+# As funções validam o usuário por conta própria (requireUser -> auth.getUser).
+# Desligar a verificação do gateway evita o erro "Invalid JWT" em projetos que usam
+# as novas chaves de assinatura (sb_publishable_...).
+[functions.bank-connect-token]
+verify_jwt = false
+
+[functions.bank-sync]
+verify_jwt = false
+
+[functions.bank-disconnect]
+verify_jwt = false
